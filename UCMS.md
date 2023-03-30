@@ -20,22 +20,33 @@ The vulnerability lies in /ucms/str/index.php file, the data entered by admin is
 
 Loophole recurrence：
 
-`/ucms/str/index.php`    There is no filter and not using htmlspecialchars. And go to htmlinput.
+`/ucms/str/index.php`    There is no filter and not using htmlspecialchars.
 
-![](C:\Users\yaoyongbo\AppData\Roaming\marktext\images\2023-03-30-16-01-40-image.png)
+```
+<?php
+$strarray=explode('|',$link['strarray']);
+$thisinput=array(
+	'id'=>$link['id'],
+	'from'=>'str',
+	'pictips'=>$link['strtip'],
+	'kind'=>$link['inputkind'],
+	'inputname'=>'input_'.$link['id'],
+	'inputvalue'=>$link['strvalue'],
+	'style'=>$link['strstyle'],
+	'strarray'=>$strarray
+);
+htmlinput($thisinput);
+	echo(' '.$link['strtip']);
+?>
+```
+![image](https://user-images.githubusercontent.com/98327377/228776441-800f7d9f-ae6b-434e-a347-f4d4a74b2e02.png)
 
-So if attacker can login as admin, in 站点管理(Site management ) --> 站点设置(Site Settings)  attacker can edit the site settings
+So if attacker can login as admin, in 站点管理(Site management ) --> 站点设置(Site Settings)  attacker can edit the site settings. The vulnerability is in 备案号  and 统计代码
 
-![](C:\Users\yaoyongbo\AppData\Roaming\marktext\images\2023-03-30-16-09-59-image.png)
-
-The vulnerability is in 备案号  and 统计代码
-
-![](C:\Users\yaoyongbo\AppData\Roaming\marktext\images\2023-03-30-16-13-58-image.png)
-
-![](C:\Users\yaoyongbo\AppData\Roaming\marktext\images\2023-03-30-16-16-30-image.png)
+![image](https://user-images.githubusercontent.com/98327377/228776186-7e9817ab-2c6d-410d-8e5c-3fd676dd5df0.png)
 
 After submit, anyone who goes to the home page will trigger the vulnerability twice
 
-![](C:\Users\yaoyongbo\AppData\Roaming\marktext\images\2023-03-30-16-18-39-image.png)
+![image](https://user-images.githubusercontent.com/98327377/228776628-f7718605-fa29-4410-b8c6-4dc08698f7bd.png)
 
-![](C:\Users\yaoyongbo\AppData\Roaming\marktext\images\2023-03-30-16-18-51-image.png)
+![image](https://user-images.githubusercontent.com/98327377/228776660-d9d02bc6-deae-4de3-94e5-1e146da4631b.png)
