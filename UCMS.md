@@ -6,7 +6,7 @@ UCMS 1.6 installation package： http://uuu.la/uploadfile/file/ucms_1.6.zip
 
 Vulnerability type：
 
-V 1.6.0
+v1.6.0
 
 Recurrence environment：
 
