@@ -21,7 +21,7 @@ When the page is saved, the vulnerability will be triggered
 
 ![image](https://user-images.githubusercontent.com/98327377/228750224-21743d6c-1657-4e00-b544-b24267fde2f3.png)
 
-When user go the page, the vulnerability will also be triggered, it's a storage-xss
+When user go the page, the vulnerability will also be triggered, it's a Stored Cross-site Scripting
 
 ![image](https://user-images.githubusercontent.com/98327377/228750285-a7076b34-2bf0-4de6-8109-1314134416dc.png)
 
