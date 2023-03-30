@@ -20,7 +20,7 @@ The vulnerability lies in /ucms/str/index.php file, the data entered by admin is
 
 Loophole recurrence：
 
-`/ucms/str/index.php`    There is no filter and not using htmlspecialchars.
+`/ucms/str/index.php`    There is no filter and htmlspecialchars.
 
 ```
 <?php
